@@ -12,8 +12,9 @@ public class CheckoutSolution {
 		/*
 		 * try { reviewBasket(skus); } catch (Exception e) { e.printStackTrace(); }
 		 */
+		Integer total = 0;
 		addSkusToMap(skus);
-		Integer total = calculateTotalBasketValue(skusMap);
+		total = calculateTotalBasketValue(skusMap);
 		return total;
 	}
 
@@ -69,3 +70,4 @@ public class CheckoutSolution {
 	}
 
 }
+
