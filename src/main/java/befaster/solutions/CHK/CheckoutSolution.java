@@ -30,8 +30,9 @@ public class CheckoutSolution {
 			} else {
 				Character[] productCatalog = new Character[] { 'A', 'B', 'C', 'D' };
 				List<Character> productCatalogList = new ArrayList<>(Arrays.asList(productCatalog));
-				productCatalog.
-				skusMap.put(c, 1);
+				if (productCatalogList.contains(c)) {
+					skusMap.put(c, 1);
+				}
 			}
 		}
 	}
@@ -55,9 +56,10 @@ public class CheckoutSolution {
 					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 				}
 			} else {
-				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
-					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
-				}
+//				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
+//					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
+//				}
+				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 			}
 		}
 		return (int) Math.round(totalValue);
@@ -65,5 +67,6 @@ public class CheckoutSolution {
 	}
 
 }
+
 
 
