@@ -12,5 +12,3 @@ public static TreeMap<Character, ItemOffer> itemOfferMap = new TreeMap<Character
 	}
 	
 }
-
-
