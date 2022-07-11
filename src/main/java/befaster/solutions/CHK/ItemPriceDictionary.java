@@ -11,6 +11,8 @@ public static TreeMap<Character, Double> itemPriceMap = new TreeMap<Character, D
 		itemPriceMap.put('B', 30.0);
 		itemPriceMap.put('C', 20.0);
 		itemPriceMap.put('D', 15.0);
+		itemPriceMap.put('E', 40.0);
 	}
 	
 }
+
