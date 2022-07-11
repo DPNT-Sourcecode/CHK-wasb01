@@ -14,5 +14,3 @@ public static TreeMap<Character, Double> itemPriceMap = new TreeMap<Character, D
 	}
 	
 }
-
-
