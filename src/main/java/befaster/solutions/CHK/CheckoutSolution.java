@@ -13,7 +13,8 @@ public class CheckoutSolution {
 		 * try { reviewBasket(skus); } catch (Exception e) { e.printStackTrace(); }
 		 */
 		addSkusToMap(skus);
-		return calculateTotalBasketValue(skusMap);
+		Integer total = calculateTotalBasketValue(skusMap);
+		return total;
 	}
 
 	public void reviewBasket(String skus) throws Exception {
@@ -28,11 +29,12 @@ public class CheckoutSolution {
 			if (skusMap.containsKey(c)) {
 				skusMap.put(c, skusMap.get(c) + 1);
 			} else {
-				Character[] productCatalog = new Character[] { 'A', 'B', 'C', 'D' };
-				List<Character> productCatalogList = new ArrayList<>(Arrays.asList(productCatalog));
-				if (productCatalogList.contains(c)) {
-					skusMap.put(c, 1);
-				}
+//				Character[] productCatalog = new Character[] { 'A', 'B', 'C', 'D' };
+//				List<Character> productCatalogList = new ArrayList<>(Arrays.asList(productCatalog));
+//				if (productCatalogList.contains(c)) {
+//					skusMap.put(c, 1);
+//				}
+				skusMap.put(c, 1);
 			}
 		}
 	}
@@ -56,10 +58,10 @@ public class CheckoutSolution {
 					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 				}
 			} else {
-//				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
-//					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
-//				}
-				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
+				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
+					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
+				}
+//				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 			}
 		}
 		return (int) Math.round(totalValue);
