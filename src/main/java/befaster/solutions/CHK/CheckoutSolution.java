@@ -28,6 +28,7 @@ public class CheckoutSolution {
 			if (skusMap.containsKey(c)) {
 				skusMap.put(c, skusMap.get(c) + 1);
 			} else {
+				
 				skusMap.put(c, 1);
 			}
 		}
@@ -62,6 +63,7 @@ public class CheckoutSolution {
 	}
 
 }
+
 
 
 
