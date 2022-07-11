@@ -4,7 +4,7 @@ import java.util.*;
 
 public class ItemOfferDictionary {
 
-public static TreeMap<String, ItemOffer> itemOfferMap = new TreeMap<String, ItemOffer>();
+public static TreeMap<Character, ItemOffer> itemOfferMap = new TreeMap<Character, ItemOffer>();
 	
 	static{
 		itemOfferMap.put("A", new ItemOffer("A", 3, 130.0));
@@ -12,3 +12,4 @@ public static TreeMap<String, ItemOffer> itemOfferMap = new TreeMap<String, Item
 	}
 	
 }
+
