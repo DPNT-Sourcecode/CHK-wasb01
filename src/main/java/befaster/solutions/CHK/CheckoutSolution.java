@@ -28,7 +28,9 @@ public class CheckoutSolution {
 			if (skusMap.containsKey(c)) {
 				skusMap.put(c, skusMap.get(c) + 1);
 			} else {
-				char[] productCatalog = {'A', 'B', 'C', 'D'};
+				Character[] productCatalog = new Character[] { 'A', 'B', 'C', 'D' };
+				List<Character> productCatalogList = new ArrayList<>(Arrays.asList(productCatalog));
+				productCatalog.
 				skusMap.put(c, 1);
 			}
 		}
@@ -63,4 +65,5 @@ public class CheckoutSolution {
 	}
 
 }
+
 
