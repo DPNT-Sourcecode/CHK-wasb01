@@ -52,7 +52,9 @@ public class CheckoutSolution {
 					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 				}
 			} else {
-				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
+				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
+					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
+				}
 			}
 		}
 		return (int) Math.round(totalValue);
@@ -60,6 +62,7 @@ public class CheckoutSolution {
 	}
 
 }
+
 
 
 
