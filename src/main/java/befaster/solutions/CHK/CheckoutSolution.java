@@ -25,8 +25,8 @@ public class CheckoutSolution {
 	public void addSkusToMap(String skus) {
 		char[] skusArray = skus.toCharArray();
 		for (char c : skusArray) {
-			if (skusMap.containsKey(Character.toString(c))) {
-				skusMap.put(c, skusMap.get(Character.toString(c)) + 1);
+			if (skusMap.containsKey(c)) {
+				skusMap.put(c, skusMap.get(c) + 1);
 			} else {
 				skusMap.put(c, 1);
 			}
@@ -63,5 +63,6 @@ public class CheckoutSolution {
 	}
 
 }
+
 
 
