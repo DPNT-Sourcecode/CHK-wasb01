@@ -6,7 +6,7 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
 
-	public TreeMap<String, Integer> skusMap = new TreeMap<String, Integer>();
+	public TreeMap<Character, Integer> skusMap = new TreeMap<Character, Integer>();
 
 	public Integer checkout(String skus) {
 		/*
@@ -26,21 +26,21 @@ public class CheckoutSolution {
 		char[] skusArray = skus.toCharArray();
 		for (char c : skusArray) {
 			if (skusMap.containsKey(Character.toString(c))) {
-				skusMap.put(Character.toString(c), skusMap.get(Character.toString(c)) + 1);
+				skusMap.put(c, skusMap.get(Character.toString(c)) + 1);
 			} else {
-				skusMap.put(Character.toString(c), 1);
+				skusMap.put(c, 1);
 			}
 		}
 	}
 
-	public Integer calculateTotalBasketValue(TreeMap<String, Integer> skusMap) {
+	public Integer calculateTotalBasketValue(TreeMap<Character, Integer> skusMap) {
 		Double totalValue = 0.0;
 		if (skusMap.isEmpty()) {
 			return 0;
 		} else {
-			Set<String> keys = skusMap.keySet();
-			for (Iterator<String> i = keys.iterator(); i.hasNext();) {
-				String item = i.next();
+			Set<Character> keys = skusMap.keySet();
+			for (Iterator<Character> i = keys.iterator(); i.hasNext();) {
+				Character item = i.next();
 				Integer quantity = skusMap.get(item);
 
 				if (ItemOfferDictionary.itemOfferMap.containsKey(item)) {
@@ -63,4 +63,5 @@ public class CheckoutSolution {
 	}
 
 }
+
 
