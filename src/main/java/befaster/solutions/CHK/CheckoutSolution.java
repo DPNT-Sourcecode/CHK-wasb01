@@ -6,15 +6,15 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
 
-	public TreeMap<Character, Integer> skusMap = new TreeMap<Character, Integer>();
+	public TreeMap<Character, Integer> skusMap;
 
 	public Integer checkout(String skus) {
 		/*
 		 * try { reviewBasket(skus); } catch (Exception e) { e.printStackTrace(); }
 		 */
-		Integer total = 0;
+		skusMap = new TreeMap<Character, Integer>();
 		addSkusToMap(skus);
-		total = calculateTotalBasketValue(skusMap);
+		Integer total = calculateTotalBasketValue(skusMap);
 		return total;
 	}
 
@@ -70,4 +70,5 @@ public class CheckoutSolution {
 	}
 
 }
+
 
