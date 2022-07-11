@@ -49,14 +49,10 @@ public class CheckoutSolution {
 				} else if (thisOffer.quantity == quantity) {
 					totalValue += thisOffer.price;
 				} else {
-					if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
-						totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
-					}
-				}
-			} else {
-				if (ItemPriceDictionary.itemPriceMap.containsKey(item)) {
 					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 				}
+			} else {
+				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 			}
 		}
 		return (int) Math.round(totalValue);
@@ -64,5 +60,6 @@ public class CheckoutSolution {
 	}
 
 }
+
 
 
