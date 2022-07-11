@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 import befaster.runner.SolutionNotImplementedException;
 
@@ -12,12 +13,19 @@ public class CheckoutSolution {
 		/*
 		 * try { reviewBasket(skus); } catch (Exception e) { e.printStackTrace(); }
 		 */
-		skusMap = new TreeMap<Character, Integer>();
-		addSkusToMap(skus);
-		Integer total = calculateTotalBasketValue(skusMap);
-		return total;
+		if (skusRegEx(skus)) {
+			return -1;
+		} else {
+			skusMap = new TreeMap<Character, Integer>();
+			addSkusToMap(skus);
+			return calculateTotalBasketValue(skusMap);
+		}
 	}
 
+	public boolean skusRegEx(String skus) {
+		return Pattern.compile("[^ABCD]").matcher(skus).find();
+	}
+	
 	public void reviewBasket(String skus) throws Exception {
 		if (skus == null || skus.length() == 0) {
 			throw new Exception("Basket is empty.");
@@ -70,3 +78,4 @@ public class CheckoutSolution {
 	}
 
 }
+
