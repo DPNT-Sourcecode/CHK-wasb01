@@ -35,31 +35,29 @@ public class CheckoutSolution {
 
 	public Integer calculateTotalBasketValue(TreeMap<Character, Integer> skusMap) {
 		Double totalValue = 0.0;
-		if (skusMap.isEmpty()) {
-			return 0;
-		} else {
-			Set<Character> keys = skusMap.keySet();
-			for (Iterator<Character> i = keys.iterator(); i.hasNext();) {
-				Character item = i.next();
-				Integer quantity = skusMap.get(item);
+		Set<Character> keys = skusMap.keySet();
+		for (Iterator<Character> i = keys.iterator(); i.hasNext();) {
+			Character item = i.next();
+			Integer quantity = skusMap.get(item);
 
-				if (ItemOfferDictionary.itemOfferMap.containsKey(item)) {
-					ItemOffer thisOffer = (ItemOffer) ItemOfferDictionary.itemOfferMap.get(item);
+			if (ItemOfferDictionary.itemOfferMap.containsKey(item)) {
+				ItemOffer thisOffer = (ItemOffer) ItemOfferDictionary.itemOfferMap.get(item);
 
-					if (thisOffer.quantity < quantity) {
-						totalValue += (quantity % thisOffer.quantity) * ItemPriceDictionary.itemPriceMap.get(item)
-								+ (quantity / thisOffer.quantity) * thisOffer.price;
-					} else if (thisOffer.quantity == quantity) {
-						totalValue += thisOffer.price;
-					} else {
-						totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
-					}
+				if (thisOffer.quantity < quantity) {
+					totalValue += (quantity % thisOffer.quantity) * ItemPriceDictionary.itemPriceMap.get(item)
+							+ (quantity / thisOffer.quantity) * thisOffer.price;
+				} else if (thisOffer.quantity == quantity) {
+					totalValue += thisOffer.price;
 				} else {
 					totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 				}
+			} else {
+				totalValue += (quantity) * ItemPriceDictionary.itemPriceMap.get(item);
 			}
-			return (int) Math.round(totalValue);
 		}
+		return (int) Math.round(totalValue);
+
 	}
 
 }
+
